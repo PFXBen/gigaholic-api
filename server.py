@@ -3,12 +3,16 @@ from markupsafe import escape
 from classes.models.Review import Review
 from classes.repositories.ArtistRepository import ArtistRepository
 from classes.repositories.UserRepository import UserRepository
+from routes.ConcertBlueprint import concert
 from dotenv import load_dotenv
 
 load_dotenv()  # take environment variables from .env.
 
 # Start flask server using the --app parameter passed in start commange
 app = Flask(__name__)
+
+# Include blueprints
+app.register_blueprint(concert)
 
 # Initialise repositories
 user_repo = UserRepository()

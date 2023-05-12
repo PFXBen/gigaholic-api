@@ -9,6 +9,7 @@ class ConcertRepository(Database):
         sql = 'SELECT * FROM public."Concert" WHERE concert_id = %s;' # Note: no quotes as primary key
         data = (concert_id, )
         row = self.get_data(sql,data,True)
+        print(row)
         concert = Concert(row[0],row[1],row[2],row[3],row[4])
         return concert.to_json()
     

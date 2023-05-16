@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <section id="search-panel">
+        <div class="row">
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+            <div class="col-10 col-lg-8 col-xxl-6">
+                <h2 class="mt-5 mb-4">Search for a gig review</h2>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Artist, tour, location..." aria-label="Search">
+                    <button id="search-button" class="btn btn-danger px-3" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="row">
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+            <div id="by-venue" class="article col-10 col-lg-8 col-xxl-6">
+                <h2 class="m-4">Reviews by Venue</h2>
+                <div class="mx-5">
+                    <h3>Venue</h3>
+                    <h4>The Dome</h4>
+                </div>
+            </div>
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+        </div>
+    </section>
+{% endblock %}

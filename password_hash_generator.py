@@ -1,12 +1,12 @@
 import sys
-from classes.PasswordHelper import PasswordHelper
+from passlib.hash import pbkdf2_sha256
 
 
 password_to_hash = sys.argv[0]
 
-hashed = PasswordHelper.get_hashed_password(password_to_hash)
+hashed = pbkdf2_sha256.hash(str(sys.argv[0]))
 
-is_match = PasswordHelper.check_password(sys.argv[0],hashed)
+is_match = pbkdf2_sha256.verify(sys.argv[0],hashed)
 
 print(hashed)
 print(is_match)

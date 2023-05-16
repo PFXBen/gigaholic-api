@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    <section>
+        <div class="row">
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+            <div class="article col-10 col-lg-8 col-xxl-6">
+                <h2 id="log-in-title" class="m-5 ps-3">Log In</h2>
+                <div class="m-5">
+                    <form method="POST" action="{{ url_for('auth.login') }}">
+                        <label for="username" class="ms-5 form-label">Username</label>
+                        <input type="text" id="username" name="username" class="ms-5 form-control border border-dark-subtle">
+                        <label for="password" class="ms-5 form-label">Password</label>
+                        <input type="password" id="password" name="password" class="ms-5 form-control border border-dark-subtle">
+                        <button type="submit" class="m-5 mb-4 btn btn-danger">Log in</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <section>
+        <div class="row">
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+            <div class="article col-10 col-lg-8 col-xxl-6">
+                <h2 id="log-in-title" class="m-5 ps-3">Username's Profile</h2>
+                <div class="m-5">
+                    <nav id="profile-nav">
+                        <div class="row">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="nav-item">
+                                    <a id="profile-link" class="nav-link active" aria-current="page" href="#profile">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="user-reviews-link" class="nav-link" href="#user-reviews">Username's Reviews</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="user-settings-link" class="nav-link" href="#user-settings">Settings</a>
+                                </li>
+                            </ul>
+                            <p id="profile">Hello</p>
+                            <p id="user-reviews" hidden>review 1</p>
+                            <p id="user-settings" hidden>setting</p>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,12 +1,15 @@
 import sys
-from passlib.hash import pbkdf2_sha256
+from werkzeug.security import check_password_hash, generate_password_hash
 
 
-password_to_hash = sys.argv[0]
+password_to_hash = sys.argv[1]
 
-hashed = pbkdf2_sha256.hash(str(sys.argv[0]))
+print(sys.argv[0],sys.argv[1])
 
-is_match = pbkdf2_sha256.verify(sys.argv[0],hashed)
+# Save new password
+hashAndSalt = generate_password_hash(password_to_hash)
 
-print(hashed)
-print(is_match)
+valid = check_password_hash(hashAndSalt, password_to_hash)
+
+print(hashAndSalt)
+print(valid)

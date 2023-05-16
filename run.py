@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template
-from flask_login import LoginManager
+from flask_login import LoginManager, login_required
 from classes.repositories.UserRepository import UserRepository
 from routes.ConcertBlueprint import concert
 from routes.AuthBlueprint import auth
@@ -33,6 +33,7 @@ def load_user(user_id):
     return user_repo.get_user_by_id(user_id)
 
 #Page Routes
+@login_required
 @app.route("/")
 def index():
     return render_template("index.html")

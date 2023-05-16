@@ -1,6 +1,7 @@
 # Python class representation of the User table in DB
 from flask_login import UserMixin
 from passlib.hash import pbkdf2_sha256
+from werkzeug.security import check_password_hash, generate_password_hash
 import jsonpickle
 
 class User(UserMixin):
@@ -11,15 +12,16 @@ class User(UserMixin):
         self.UserName = username
         self.Password = password
 
+    def get_id(self):
+        return self.user_id
+
     def set_password(self, password):
-       self.password_hash = pbkdf2_sha256.hash(password)
+       self.password_hash = generate_password_hash(password)
 
     def check_password(self, pw:str):
-       print(pw)
-       print(self.Password)
-       is_match = pbkdf2_sha256.verify(pw.encode('utf-8'),self.Password.encode('utf-8'))
-       print(is_match)
-       return is_match
+       pw_hashed = check_password_hash(self.Password, pw)
+       print(pw_hashed, self.Password)
+       return pw_hashed
 
     def to_json(self):
         return jsonpickle.encode(self,unpicklable=False)

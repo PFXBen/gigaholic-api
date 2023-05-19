@@ -20,3 +20,7 @@ def get_artists_by_genre_id(genre_id):
 @artist.get("/api/artists")
 def get_all_artists():
     return artist_repo.get_all_artists()
+
+@artist.get("/api/artists/extended")
+def get_all_artists_extended():
+    return artist_repo.get_all_artists_extended()

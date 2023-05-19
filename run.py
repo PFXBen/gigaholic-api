@@ -6,6 +6,7 @@ from routes.ConcertBlueprint import concert
 from routes.AuthBlueprint import auth
 from routes.UserBlueprint import user
 from routes.ArtistBlueprint import artist
+from routes.ReviewBlueprint import review
 from dotenv import load_dotenv
 
 load_dotenv()  # take environment variables from .env.
@@ -26,6 +27,7 @@ app.register_blueprint(concert)
 app.register_blueprint(auth)
 app.register_blueprint(user)
 app.register_blueprint(artist)
+app.register_blueprint(review)
 
 @login_manager.user_loader
 def load_user(user_id):

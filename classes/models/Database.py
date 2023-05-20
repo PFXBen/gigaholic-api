@@ -27,26 +27,30 @@ class Database:
     # Public method to get data by executing the supplied query and its associated data. 
     # Boolean toggle for whether to fetch 1 row or all matching rows (default to True)
     def get_data(self, query:str, data, single_row = True):
-        # create a connection
-        conn = self.__connect()
-        
-        # create a cursor
-        cur = conn.cursor()
-        
-	    # execute a statement
-        cur.execute(query, data)
+            # create a connection
+            conn = self.__connect()
+            
+            # create a cursor
+            cur = conn.cursor()
+            try:   
+                # execute a statement
+                cur.execute(query, data)
 
-        if single_row:
-            # return single row of data as dict
-            row = cur.fetchone()
-            self.__close(cur,conn)
-            return row
+                if single_row:
+                    # return single row of data as dict
+                    row = cur.fetchone()
+                    self.__close(cur,conn)
+                    return row
 
-        else:
-            # return array of rows
-            rows = cur.fetchall()
-            self.__close(cur,conn)
-            return rows
+                else:
+                    # return array of rows
+                    rows = cur.fetchall()
+                    self.__close(cur,conn)
+                    return rows
+            except Exception as e:
+                print(e.with_traceback())
+                self.__close(cur,conn)
+                return None
         
     # Create a row in the database and return the id of the new row, or 0 if failed as 0 cannot be used as an id in database
     def create_data(self,sql:str,data):

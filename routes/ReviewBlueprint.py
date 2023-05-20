@@ -29,6 +29,16 @@ def get_reviews_for_tour_id(tour_id):
 def get_reviews_for_venue_id(venue_id):
     return review_repo.get_reviews_for_venue_id(venue_id)
 
+# Get reviews for a given user
+@review.get("/api/reviews/user/<int:user_id>")
+def get_reviews_for_user_id(user_id):
+    return review_repo.get_reviews_for_user_id(user_id)
+
+# Get reviews for a given concert
+@review.get("/api/reviews/concert/<int:concert_id>")
+def get_reviews_for_concert_id(concert_id):
+    return review_repo.get_reviews_for_concert_id(concert_id)
+
 # Edit existing review
 @review.patch("/api/review/<int:review_id>")
 def patch_new_review(review_id):

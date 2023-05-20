@@ -27,7 +27,7 @@ a {
     background-color: #700e28;
 }
 
-#log-in {
+#log-in,#log-out {
     float: right;
     color: #d54d2f;
     font-size: 130%;

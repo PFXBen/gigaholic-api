@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template
-from flask_login import LoginManager, login_required
+from flask_login import LoginManager, current_user, login_required
 from classes.repositories.UserRepository import UserRepository
 from routes.ConcertBlueprint import concert
 from routes.AuthBlueprint import auth
@@ -32,25 +32,26 @@ app.register_blueprint(review)
 @login_manager.user_loader
 def load_user(user_id):
     # since the user_id is just the primary key of our user table, use it in the query for the user
-    return user_repo.get_user_by_id(user_id)
+    return user_repo.get_user_object_by_id(user_id)
 
 #Page Routes
-@login_required
 @app.route("/")
+@login_required
 def index():
-    return render_template("index.html")
-
+    print(current_user)
+    return render_template("index.html", user=current_user)
 
 @app.route("/reviews_by_artist")
+@login_required
 def by_artist():
     return render_template("by-artist.html")
 
-
 @app.route("/reviews_by_tour")
+@login_required
 def by_tour():
     return render_template("by-tour.html")
 
-
 @app.route("/reviews_by_venue")
+@login_required
 def by_venue():
     return render_template("by-venue.html")

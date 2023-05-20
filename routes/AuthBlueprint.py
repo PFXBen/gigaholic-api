@@ -1,4 +1,5 @@
 
+import datetime
 from flask import Blueprint, redirect, flash, request, url_for, render_template
 from flask_login import login_user, login_required, logout_user
 from classes.models.User import User
@@ -36,7 +37,7 @@ def post_login():
     
     
     # if the above check passes, then we know the user has the right credentials
-    login_user(user)
+    login_user(user,remember=True)
     print("{} is logged in...".format(user.UserName))
     return redirect(url_for('index'))
 

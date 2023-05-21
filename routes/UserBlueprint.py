@@ -1,4 +1,6 @@
 from flask import Blueprint
+from flask_login import login_required, current_user
+import jsonpickle
 from markupsafe import escape
 from classes.repositories.UserRepository import UserRepository
 
@@ -6,6 +8,14 @@ user_repo = UserRepository()
 
 # Example of a blueprint, this allows the declaration of flask routes in a different python file
 user = Blueprint('user', __name__)
+
+@user.get("/api/user/current")
+@login_required
+def get_id_of_user_logged_in():
+    user_info = {}
+    user_info["id"] = current_user.user_id
+    return jsonpickle.encode(user_info, False)
+
 @user.get("/api/user/id/<int:user_id>")
 def get_user_by_id(user_id):
     return user_repo.get_user_by_id(user_id)

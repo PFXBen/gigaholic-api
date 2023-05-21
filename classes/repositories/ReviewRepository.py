@@ -104,7 +104,7 @@ class ReviewRepository(Database):
         public."Tour"."TourName",
         public."Artist"."ArtistName",
         public."Tour"."tour_id",
-        public."Venue"."venue_id,
+        public."Venue"."venue_id",
         public."Concert"."concert_id"
 
         FROM public."Review" 

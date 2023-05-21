@@ -23,7 +23,8 @@ class ReviewRepository(Database):
         public."Tour"."TourName",
         public."Artist"."ArtistName",
         public."Tour"."tour_id",
-        public."Venue"."venue_id"
+        public."Venue"."venue_id",
+        public."Concert"."concert_id"
 
         FROM public."Review" 
 
@@ -42,7 +43,7 @@ class ReviewRepository(Database):
         for x in range(len(rows)):
             review = ReviewExtended(rows[x][0],rows[x][1],rows[x][2],rows[x][3],
                                     rows[x][4],rows[x][5],rows[x][6],rows[x][7],
-                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14])
+                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14],rows[x][15])
             res.append(review)
         return jsonpickle.encode(res, False)
     
@@ -63,7 +64,8 @@ class ReviewRepository(Database):
         public."Tour"."TourName",
         public."Artist"."ArtistName",
         public."Tour"."tour_id",
-        public."Venue"."venue_id"
+        public."Venue"."venue_id",
+        public."Concert"."concert_id"
 
         FROM public."Review" 
 
@@ -81,7 +83,7 @@ class ReviewRepository(Database):
         for x in range(len(rows)):
             review = ReviewExtended(rows[x][0],rows[x][1],rows[x][2],rows[x][3],
                                     rows[x][4],rows[x][5],rows[x][6],rows[x][7],
-                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14])
+                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14],rows[x][15])
             res.append(review)
         return jsonpickle.encode(res, False)
     
@@ -102,7 +104,8 @@ class ReviewRepository(Database):
         public."Tour"."TourName",
         public."Artist"."ArtistName",
         public."Tour"."tour_id",
-        poublic."Venue"."venue_id
+        public."Venue"."venue_id,
+        public."Concert"."concert_id"
 
         FROM public."Review" 
         NATURAL JOIN public."Concert" 
@@ -120,7 +123,7 @@ class ReviewRepository(Database):
             print(rows[x])
             review = ReviewExtended(rows[x][0],rows[x][1],rows[x][2],rows[x][3],
                                     rows[x][4],rows[x][5],rows[x][6],rows[x][7],
-                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14])
+                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14],rows[x][15])
             res.append(review)
         return jsonpickle.encode(res, False)
     
@@ -141,7 +144,8 @@ class ReviewRepository(Database):
         public."Tour"."TourName",
         public."Artist"."ArtistName",
         public."Tour"."tour_id",
-        public."Venue"."venue_id"
+        public."Venue"."venue_id",
+        public."Concert"."concert_id"
 
         FROM public."Review" 
 
@@ -161,7 +165,7 @@ class ReviewRepository(Database):
             print(rows[x])
             review = ReviewExtended(rows[x][0],rows[x][1],rows[x][2],rows[x][3],
                                     rows[x][4],rows[x][5],rows[x][6],rows[x][7],
-                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14])
+                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14],rows[x][15])
             res.append(review)
         return jsonpickle.encode(res, False)
     # Get reviews for venue id
@@ -181,7 +185,8 @@ class ReviewRepository(Database):
         public."Tour"."TourName",
         public."Artist"."ArtistName",
         public."Tour"."tour_id",
-        public."Venue"."venue_id"
+        public."Venue"."venue_id",
+        public."Concert"."concert_id"
 
         FROM public."Review" 
 
@@ -201,7 +206,7 @@ class ReviewRepository(Database):
             print(rows[x])
             review = ReviewExtended(rows[x][0],rows[x][1],rows[x][2],rows[x][3],
                                     rows[x][4],rows[x][5],rows[x][6],rows[x][7],
-                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14])
+                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],rows[x][12],rows[x][13],rows[x][14],rows[x][15])
             res.append(review)
         return jsonpickle.encode(res, False)
 
